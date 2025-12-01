@@ -2,234 +2,184 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="バー/店舗の紹介ページ（構造テンプレ）" />
-  <title>Sample Club | Establishment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="バー/店舗の紹介ページ" />
+  <title>WACK DA. VINCI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- ================= Header ================= -->
-  <header class="site-header" id="top">
-    <div class="header-inner">
-      <a class="brand" href="#top" aria-label="トップへ">
-        <img src="assets/img/1.png" alt="Logo" class="brand-logo" />
-      </a>
+  <!-- ===== Sticky Header (スクロールで出現) ===== -->
+  <header class="sticky-header" id="stickyHeader" aria-label="ページナビゲーション">
+    <a class="sticky-brand" href="#top" aria-label="トップへ">
+      <img src="assets/img/logo.png" alt="" aria-hidden="true">
+      <span>WACK DA. VINCI</span>
+    </a>
 
-      <nav class="site-nav" aria-label="グローバルナビ">
-        <a href="#concept">Concept</a>
-        <a href="#awards">Awards</a>
-        <a href="#info">Information</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="lang" href="#" aria-label="English">EN</a>
-        <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Drawer -->
-    <div class="drawer" aria-hidden="true">
-      <div class="drawer-inner">
-        <a href="#concept">Concept</a>
-        <a href="#awards">Awards</a>
-        <a href="#info">Information</a>
-        <a href="#contact">Contact</a>
-        <a class="drawer-lang" href="#">EN</a>
-      </div>
-    </div>
+    <nav class="sticky-nav" aria-label="セクションナビ">
+      <a href="#about">About</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#info">Access</a>
+    </nav>
   </header>
 
-  <!-- ================ Decorative glows ================= -->
-  <img class="glow glow-left"  src="assets/img/3.png" alt="" aria-hidden="true" />
-  <img class="glow glow-right" src="assets/img/4.png" alt="" aria-hidden="true" />
-
   <main>
-    <!-- ================= Hero ================= -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <p class="kicker">バーを愉しむ</p>
-          <h1 class="hero-title">Sample Club</h1>
-          <p class="hero-sub">A FINE PLACE TO SIP OR GUZZLE</p>
+    <!-- ================== HERO (full screen) ================== -->
+    <section class="hero" id="top" aria-label="ファーストビュー">
+      <img class="hero-bg" src="assets/img/2.png" alt="" aria-hidden="true">
+      <div class="hero-scrim" aria-hidden="true"></div>
 
-          <p class="hero-lead">
-            ここに入ると、日常の少し外側に連れていかれる。<br />
-            和と洋、静と動。相反する要素を、ひとつの体験に。
+      <div class="hero-content">
+        <div class="brand-lockup" id="brandLockup">
+          <img class="brand-logo" src="assets/img/logo.png" alt="WACK DA. VINCI ロゴ">
+          <div class="brand-text">
+            <h1 class="brand-name">Wack da.vinch.</h1>
+            <p class="brand-tag">Secret bar</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#intro" aria-label="下へスクロール">Scroll</a>
+
+      <!-- ここが“ヘッダー出現”の判定用（ヒーローを抜けたらヘッダー表示） -->
+      <div class="sticky-sentinel" id="stickySentinel" aria-hidden="true"></div>
+    </section>
+
+    <!-- ================== INTRO (hero の“下”に置く) ================== -->
+    <section class="intro" id="intro" aria-label="イントロ">
+      <div class="intro-inner">
+        <p class="intro-overline">Wack da.vinch.</p>
+        <p class="intro-kicker">バーを愉しめ</p>
+        <h2 class="intro-headline">A FINE PLACE TO&nbsp;SIP OR GUZZLE</h2>
+        <p class="intro-lead">
+          1860年に万延元年遣米使節として海を渡った侍たちと、カクテル黄金時代のアメリカ。<br>
+          彼らの旅からインスパイアされたWack da.vinch.は、和と洋が絶妙にブレンドされたカクテルバー。
+        </p>
+      </div>
+    </section>
+
+    <!-- ================== ABOUT (photo + text) x2 ================== -->
+    <section class="wrap" id="about" aria-label="About us">
+      <article class="story">
+        <div class="story-media">
+          <img src="assets/img/3.png" alt="店内の雰囲気">
+        </div>
+        <div class="story-text">
+          <h2>静けさに、熱がある。</h2>
+          <p>
+            仕事帰りの一杯にも、記念日の一杯にも。ライトは低く、音はやわらかく。
+            手の中のグラスが主役になるように、余白で設計しました。
           </p>
+        </div>
+      </article>
 
-          <div class="hero-cta">
-            <a class="btn" href="#contact">Book Sip</a>
-            <a class="btn btn-ghost" href="#contact">Book Upstairs</a>
-          </div>
+      <article class="story story--reverse">
+        <div class="story-media">
+          <img src="assets/img/4.png" alt="カクテルの写真">
+        </div>
+        <div class="story-text">
+          <h2>一口目で、空気が変わる。</h2>
+          <p>
+            香り、温度、余韻。素材の輪郭を立てながら、最後はなめらかに溶ける。
+            今日の気分に合わせて、クラシックもツイストも用意しています。
+          </p>
+        </div>
+      </article>
+    </section>
 
-          <div class="badge-row" aria-label="特徴">
-            <span class="badge">Cocktails</span>
-            <span class="badge">Mocktails</span>
-            <span class="badge">Take away</span>
-          </div>
+    <!-- ================== DRINKS carousel ================== -->
+    <section class="wrap" id="drinks" aria-label="ドリンク">
+      <header class="section-head">
+        <h2 class="section-title">Drinks</h2>
+        <p class="section-sub">Swipe to browse</p>
+      </header>
+
+      <div class="carousel" data-carousel>
+        <div class="carousel-track" data-track>
+          <figure class="card">
+            <img src="assets/img/5.png" alt="Drink 01">
+            <figcaption>Signature 01</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="assets/img/6.png" alt="Drink 02">
+            <figcaption>Signature 02</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="assets/img/7.png" alt="Drink 03">
+            <figcaption>Seasonal</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="assets/img/8.png" alt="Drink 04">
+            <figcaption>Classic</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="assets/img/9.png" alt="Drink 05">
+            <figcaption>Mocktail</figcaption>
+          </figure>
         </div>
 
-        <div class="hero-media reveal">
-          <div class="media-frame">
-            <img src="assets/img/2.png" alt="Hero image" />
+        <button class="car-btn car-btn--prev" type="button" data-prev aria-label="前へ">‹</button>
+        <button class="car-btn car-btn--next" type="button" data-next aria-label="次へ">›</button>
+
+        <div class="dots" data-dots aria-label="スライド位置"></div>
+      </div>
+    </section>
+
+    <!-- ================== Information (LEFT: MAP / RIGHT: DETAILS) ================== -->
+    <section class="wrap" id="info" aria-label="インフォメーション">
+      <header class="section-head">
+        <h2 class="section-title">Information</h2>
+        <p class="section-sub">Access / Hours</p>
+      </header>
+
+      <div class="info">
+        <div class="info-brand info-map">
+          <iframe
+            title="WACK DA. VINCI の地図"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=徳島県徳島市両国橋11-2&output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="info-block">
+          <h3>Phone</h3>
+          <p><a href="tel:0000000000">000-0000-0000</a></p>
+
+          <h3>Address</h3>
+          <p>徳島県徳島市両国橋11-2</p>
+
+          <h3>Hours</h3>
+          <p>20:00–04:00（水曜日）</p>
+
+          <div class="info-actions">
+            <a class="btn"
+               href="https://www.google.com/maps?q=徳島県徳島市両国橋11-2"
+               target="_blank" rel="noopener">
+              Open Map
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= Concept ================= -->
-    <section class="section" id="concept">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title">Concept</h2>
-          <p class="section-sub">自由で多様なカルチャーを、ひとつの空間へ。</p>
-        </div>
+    <!-- ================== FULL-WIDTH FOOTER (full screen) ================== -->
+    <footer class="footer footer--img" aria-label="フッター">
+      <img class="footer-bg" src="assets/img/2.png" alt="" aria-hidden="true">
+      <div class="footer-scrim" aria-hidden="true"></div>
 
-        <div class="split reveal">
-          <div class="split-col">
-            <h3 class="split-title">Floor 1 — Casual</h3>
-            <p class="split-text">
-              仕事帰りに一杯。会話が弾むテンポ感。気軽さの中に、丁寧さを忍ばせる設計。
-            </p>
-          </div>
-
-          <div class="split-col">
-            <h3 class="split-title">Basement — Slow</h3>
-            <p class="split-text">
-              落ち着いた照明と重厚な素材。香りや温度変化まで含めて、ゆっくり味わう体験を。
-            </p>
-          </div>
-
-          <div class="split-col">
-            <h3 class="split-title">Upstairs — Members</h3>
-            <p class="split-text">
-              静けさの中で深まるペアリング。特別な時間帯のための、もうひとつの居場所。
-            </p>
-          </div>
-        </div>
+      <div class="footer-inner">
+        <p>© <span id="year"></span> WACK DA. VINCI</p>
       </div>
-    </section>
+    </footer>
 
-    <!-- ================= Awards ================= -->
-    <section class="section section-alt" id="awards">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title">Awards</h2>
-          <p class="section-sub">記録ではなく、体験の質で選ばれ続けるために。</p>
-        </div>
-
-        <ul class="award-list reveal" role="list">
-          <li class="award-card">
-            <p class="award-rank">No.10</p>
-            <p class="award-name">The World’s 50 Best Bars</p>
-            <p class="award-year">2020</p>
-          </li>
-          <li class="award-card">
-            <p class="award-rank">No.3</p>
-            <p class="award-name">Asia’s 50 Best Bars</p>
-            <p class="award-year">2021</p>
-          </li>
-          <li class="award-card">
-            <p class="award-rank">Best</p>
-            <p class="award-name">Best Bar in Japan</p>
-            <p class="award-year">2020–2021</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ================= Information ================= -->
-    <section class="section" id="info">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title">Information</h2>
-          <p class="section-sub">アクセス・営業時間・SNS</p>
-        </div>
-
-        <div class="info-grid reveal">
-          <div class="info-brand">
-            <img class="info-logo" src="assets/img/5.png" alt="Info Logo" />
-            <p class="info-note">※ロゴは任意（不要なら削除OK）</p>
-          </div>
-
-          <div class="info-block">
-            <h3>Phone</h3>
-            <p><a href="tel:0000000000">000-0000-0000</a></p>
-
-            <h3>Address</h3>
-            <p>東京都○○区○○ 1-2-3</p>
-
-            <h3>Hours</h3>
-            <p>Mon–Sun 18:00–02:00</p>
-          </div>
-
-          <div class="info-block">
-            <h3>Links</h3>
-            <div class="icon-row">
-              <a class="icon-link" href="#" aria-label="Facebook">
-                <img src="assets/img/6.png" alt="Facebook" />
-              </a>
-              <a class="icon-link" href="#" aria-label="Instagram">
-                <img src="assets/img/7.png" alt="Instagram" />
-              </a>
-              <a class="icon-link" href="#" aria-label="Google Map">
-                <img src="assets/img/8.png" alt="Map" />
-              </a>
-            </div>
-
-            <div class="map-cta">
-              <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Open Map</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= Contact ================= -->
-    <section class="section section-alt" id="contact">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2 class="section-title">Contact</h2>
-          <p class="section-sub">問い合わせ / 予約導線（外部予約サイトへリンクでもOK）</p>
-        </div>
-
-        <form class="contact-form reveal" onsubmit="return false;">
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" placeholder="お名前" autocomplete="name" />
-          </label>
-
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" placeholder="example@mail.com" autocomplete="email" />
-          </label>
-
-          <label class="full">
-            <span>Message</span>
-            <textarea name="message" rows="5" placeholder="内容"></textarea>
-          </label>
-
-          <div class="form-actions full">
-            <button class="btn" type="submit">Send (demo)</button>
-            <p class="form-note">※このテンプレは送信処理未実装（必要ならJS/サーバー側も作れます）</p>
-          </div>
-        </form>
-      </div>
-    </section>
   </main>
-
-  <!-- ================= Footer ================= -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p class="footer-small">© <span id="year"></span> Sample Club</p>
-      <a class="to-top" href="#top" aria-label="トップへ戻る">↑</a>
-    </div>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
