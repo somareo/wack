@@ -359,8 +359,8 @@ p{ margin:0; color: var(--muted); }
   inset: 0;
   background: linear-gradient(to bottom,
     rgba(0,0,0,.96) 0%,
-    rgba(0,0,0,.60) 80%,
-    rgba(0,0,0,.40) 40%,
+    rgba(0,0,0,.60) 40%,
+    rgba(0,0,0,.40) 80%,
     rgba(0,0,0,.20) 100%
   );
 }
@@ -381,6 +381,7 @@ p{ margin:0; color: var(--muted); }
 }
 
 /* ===== Sticky Header ===== */
+/* ===== Sticky Header（最初から表示） ===== */
 .sticky-header{
   position: fixed;
   left: 0;
@@ -391,26 +392,29 @@ p{ margin:0; color: var(--muted); }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: .8rem;
+  gap: 1rem;
 
-  padding: .75rem 1rem;
-  padding-top: calc(.75rem + env(safe-area-inset-top));
+  /* ★高さ（=幅感）を大きく：上下のpaddingを増やす */
+  padding: 1.15rem 1.2rem;
+  padding-top: calc(1.15rem + env(safe-area-inset-top));
 
-  background: rgba(0,0,0,.45);
-  border-bottom: 1px solid rgba(255,255,255,.10);
-  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.55);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(12px);
 
-  transform: translateY(-120%);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform .25s ease, opacity .25s ease;
-}
-
-.sticky-header.is-visible{
-  transform: translateY(0);
+  /* ★ここが「最初から表示」 */
+  transform: none;
   opacity: 1;
   pointer-events: auto;
 }
+
+/* もう is-visible は不要だが、残ってもOK（念のため上書き） */
+.sticky-header.is-visible{
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 .sticky-brand{
   display: inline-flex;
@@ -464,6 +468,18 @@ p{ margin:0; color: var(--muted); }
   right: 0;
   bottom: 0;
   height: 1px;
+}
+.sticky-brand img{
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.sticky-brand span{
+  font-size: 1.15rem;
+}
+.sticky-nav a{
+  font-size: .95rem;
+  padding: .65rem .8rem;
 }
 
 /* ===== Hero copy block ===== */
