@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="バー/店舗の紹介ページ（構造テンプレ）" />
+  <title>Sample Club | Establishment</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- ================= Header ================= -->
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="トップへ">
+        <img src="assets/img/1.png" alt="Logo" class="brand-logo" />
+      </a>
+
+      <nav class="site-nav" aria-label="グローバルナビ">
+        <a href="#concept">Concept</a>
+        <a href="#awards">Awards</a>
+        <a href="#info">Information</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="lang" href="#" aria-label="English">EN</a>
+        <button class="hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="drawer" aria-hidden="true">
+      <div class="drawer-inner">
+        <a href="#concept">Concept</a>
+        <a href="#awards">Awards</a>
+        <a href="#info">Information</a>
+        <a href="#contact">Contact</a>
+        <a class="drawer-lang" href="#">EN</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================ Decorative glows ================= -->
+  <img class="glow glow-left"  src="assets/img/3.png" alt="" aria-hidden="true" />
+  <img class="glow glow-right" src="assets/img/4.png" alt="" aria-hidden="true" />
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="kicker">バーを愉しむ</p>
+          <h1 class="hero-title">Sample Club</h1>
+          <p class="hero-sub">A FINE PLACE TO SIP OR GUZZLE</p>
+
+          <p class="hero-lead">
+            ここに入ると、日常の少し外側に連れていかれる。<br />
+            和と洋、静と動。相反する要素を、ひとつの体験に。
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn" href="#contact">Book Sip</a>
+            <a class="btn btn-ghost" href="#contact">Book Upstairs</a>
+          </div>
+
+          <div class="badge-row" aria-label="特徴">
+            <span class="badge">Cocktails</span>
+            <span class="badge">Mocktails</span>
+            <span class="badge">Take away</span>
+          </div>
+        </div>
+
+        <div class="hero-media reveal">
+          <div class="media-frame">
+            <img src="assets/img/2.png" alt="Hero image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Concept ================= -->
+    <section class="section" id="concept">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Concept</h2>
+          <p class="section-sub">自由で多様なカルチャーを、ひとつの空間へ。</p>
+        </div>
+
+        <div class="split reveal">
+          <div class="split-col">
+            <h3 class="split-title">Floor 1 — Casual</h3>
+            <p class="split-text">
+              仕事帰りに一杯。会話が弾むテンポ感。気軽さの中に、丁寧さを忍ばせる設計。
+            </p>
+          </div>
+
+          <div class="split-col">
+            <h3 class="split-title">Basement — Slow</h3>
+            <p class="split-text">
+              落ち着いた照明と重厚な素材。香りや温度変化まで含めて、ゆっくり味わう体験を。
+            </p>
+          </div>
+
+          <div class="split-col">
+            <h3 class="split-title">Upstairs — Members</h3>
+            <p class="split-text">
+              静けさの中で深まるペアリング。特別な時間帯のための、もうひとつの居場所。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Awards ================= -->
+    <section class="section section-alt" id="awards">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Awards</h2>
+          <p class="section-sub">記録ではなく、体験の質で選ばれ続けるために。</p>
+        </div>
+
+        <ul class="award-list reveal" role="list">
+          <li class="award-card">
+            <p class="award-rank">No.10</p>
+            <p class="award-name">The World’s 50 Best Bars</p>
+            <p class="award-year">2020</p>
+          </li>
+          <li class="award-card">
+            <p class="award-rank">No.3</p>
+            <p class="award-name">Asia’s 50 Best Bars</p>
+            <p class="award-year">2021</p>
+          </li>
+          <li class="award-card">
+            <p class="award-rank">Best</p>
+            <p class="award-name">Best Bar in Japan</p>
+            <p class="award-year">2020–2021</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= Information ================= -->
+    <section class="section" id="info">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Information</h2>
+          <p class="section-sub">アクセス・営業時間・SNS</p>
+        </div>
+
+        <div class="info-grid reveal">
+          <div class="info-brand">
+            <img class="info-logo" src="assets/img/5.png" alt="Info Logo" />
+            <p class="info-note">※ロゴは任意（不要なら削除OK）</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Phone</h3>
+            <p><a href="tel:0000000000">000-0000-0000</a></p>
+
+            <h3>Address</h3>
+            <p>東京都○○区○○ 1-2-3</p>
+
+            <h3>Hours</h3>
+            <p>Mon–Sun 18:00–02:00</p>
+          </div>
+
+          <div class="info-block">
+            <h3>Links</h3>
+            <div class="icon-row">
+              <a class="icon-link" href="#" aria-label="Facebook">
+                <img src="assets/img/6.png" alt="Facebook" />
+              </a>
+              <a class="icon-link" href="#" aria-label="Instagram">
+                <img src="assets/img/7.png" alt="Instagram" />
+              </a>
+              <a class="icon-link" href="#" aria-label="Google Map">
+                <img src="assets/img/8.png" alt="Map" />
+              </a>
+            </div>
+
+            <div class="map-cta">
+              <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Open Map</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Contact ================= -->
+    <section class="section section-alt" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title">Contact</h2>
+          <p class="section-sub">問い合わせ / 予約導線（外部予約サイトへリンクでもOK）</p>
+        </div>
+
+        <form class="contact-form reveal" onsubmit="return false;">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" placeholder="お名前" autocomplete="name" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="example@mail.com" autocomplete="email" />
+          </label>
+
+          <label class="full">
+            <span>Message</span>
+            <textarea name="message" rows="5" placeholder="内容"></textarea>
+          </label>
+
+          <div class="form-actions full">
+            <button class="btn" type="submit">Send (demo)</button>
+            <p class="form-note">※このテンプレは送信処理未実装（必要ならJS/サーバー側も作れます）</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-small">© <span id="year"></span> Sample Club</p>
+      <a class="to-top" href="#top" aria-label="トップへ戻る">↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
