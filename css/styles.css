@@ -23,6 +23,8 @@ body{
   text-rendering: geometricPrecision;
 }
 
+
+
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 p{ margin:0; color: var(--muted); }
@@ -607,3 +609,117 @@ p{ margin:0; color: var(--muted); }
   .info{ grid-template-columns: .9fr 1.1fr; }
 }
 
+/* ===== Mobile Hamburger Nav ===== */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* ボタン（基本はPCで非表示） */
+.nav-toggle{
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 14px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.nav-toggle:active{ transform: scale(0.98); }
+.nav-toggle:hover{
+  background: rgba(0,0,0,0.34);
+  border-color: rgba(255,255,255,0.28);
+}
+
+/* 3本線 */
+.nav-toggle__bar{
+  display:block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 99px;
+  transition: transform .22s ease, opacity .18s ease;
+}
+
+/* 開いたら×に変形 */
+.nav-open .nav-toggle__bar:nth-child(1){ transform: translateY(6px) rotate(45deg); }
+.nav-open .nav-toggle__bar:nth-child(2){ opacity: 0; }
+.nav-open .nav-toggle__bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+
+/* モバイル：ドロップダウン化 */
+@media (max-width: 860px){
+  .nav-toggle{ display: inline-flex; }
+
+  /* 既存の横並びnavを、ドロップダウンに変更 */
+  .sticky-nav{
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: calc(100% + 10px);
+
+    display: grid;
+    gap: 8px;
+
+    padding: 12px;
+    border-radius: 18px;
+
+    background: rgba(10,10,10,0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+  }
+
+  .sticky-nav a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    letter-spacing: .06em;
+
+    color: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: background .18s ease, transform .18s ease, border-color .18s ease;
+  }
+
+  .sticky-nav a::after{
+    content: "↗";
+    opacity: .75;
+    transform: translateY(-1px);
+  }
+
+  .sticky-nav a:hover{
+    background: rgba(255,255,255,0.11);
+    border-color: rgba(255,255,255,0.16);
+    transform: translateY(-1px);
+  }
+
+  /* 開いている状態 */
+  .nav-open .sticky-nav{
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+/* アニメ苦手ユーザー配慮 */
+@media (prefers-reduced-motion: reduce){
+  .sticky-nav, .nav-toggle, .nav-toggle__bar{ transition: none !important; }
+}

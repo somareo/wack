@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "updated_at": "2025-12-02",
+    "currency": "JPY",
+    "default_price": 1000
+  },
+  "genres": [
+    {
+      "id": "signature",
+      "name": "Signature",
+      "subtitle": "看板カクテル",
+      "items": [
+        {
+          "name": "Man’en Voyage (万延ボヤージュ)",
+          "note": "柚子 × バーボン × ビター。旅立ちの一杯。",
+          "price": 1000,
+          "img": "assets/img/drink/signature_01.png"
+        },
+        {
+          "name": "Edo & Empire",
+          "note": "抹茶 × ジン × ハーブの香り。和洋の境界線。",
+          "price": 1000,
+          "img": "assets/img/drink/signature_02.png"
+        },
+        {
+          "name": "Black Harbor Highball",
+          "note": "燻製香 × ジャパニーズウイスキー。港の夜をハイボールで。",
+          "price": 1000,
+          "img": "assets/img/drink/signature_03.png"
+        },
+        {
+          "name": "Silk Road Negroni",
+          "note": "山椒（または七味）× ネグローニ。スパイスの余韻。",
+          "price": 1000,
+          "img": "assets/img/drink/signature_04.png"
+        }
+
+      ]
+    },
+    {
+      "id": "cocktail_classic",
+      "name": "Classic Cocktails",
+      "subtitle": "クラシック",
+      "items": [
+        { "name": "Martini", "note": "ジン / ドライ", "price": 1000 },
+        { "name": "Negroni", "note": "ビター&甘み", "price": 1000 },
+        { "name": "Old Fashioned", "note": "ウイスキー / 角砂糖", "price": 1000 },
+        { "name": "Manhattan", "note": "ウイスキー / ベルモット", "price": 1000 },
+        { "name": "Margarita", "note": "テキーラ / シトラス", "price": 1000 },
+        { "name": "Daiquiri", "note": "ラム / ライム", "price": 1000 },
+        { "name": "Whiskey Sour", "note": "甘酸 / 卵白も可", "price": 1000 },
+        { "name": "Sidecar", "note": "ブランデー×柑橘", "price": 1000 }
+      ]
+    },
+    {
+      "id": "whisky",
+      "name": "Whisky",
+      "subtitle": "ウイスキー",
+      "items": [
+        { "name": "Single Malt (おすすめ)", "note": "香り重視 / ストレート・ロック", "price": 1000 },
+        { "name": "Blended Whisky", "note": "バランス良い / ハイボールにも", "price": 1000 },
+        { "name": "Bourbon", "note": "甘いバニラ香 / ロック推奨", "price": 1000 },
+        { "name": "Rye Whiskey", "note": "スパイシー / カクテル向き", "price": 1000 },
+        { "name": "Japanese Whisky", "note": "繊細 / 食中にも", "price": 1000 },
+        { "name": "Scotch (Islay / Peated)", "note": "スモーキー / 好きな人向け", "price": 1000 },
+        { "name": "Highball", "note": "爽快 / レモンあり", "price": 1000 }
+      ]
+    },
+    {
+      "id": "wine",
+      "name": "Wine",
+      "subtitle": "ワイン",
+      "items": [
+        { "name": "Sparkling Wine", "note": "乾杯に / ブリュット", "price": 1000 },
+        { "name": "Champagne (by request)", "note": "特別な夜に", "price": 1000 },
+        { "name": "White Wine", "note": "辛口中心 / すっきり", "price": 1000 },
+        { "name": "Red Wine", "note": "ミディアム〜フル", "price": 1000 },
+        { "name": "Rosé", "note": "軽やか / フルーティ", "price": 1000 },
+        { "name": "Dessert Wine", "note": "食後に / 甘口", "price": 1000 }
+      ]
+    },
+    {
+      "id": "gin",
+      "name": "Gin",
+      "subtitle": "ジン",
+      "items": [
+        { "name": "Gin & Tonic", "note": "定番 / すっきり", "price": 1000 },
+        { "name": "Gimlet", "note": "キリッと酸味", "price": 1000 },
+        { "name": "Tom Collins", "note": "爽快 / ソーダ", "price": 1000 },
+        { "name": "Negroni (Gin base)", "note": "大人のビター", "price": 1000 }
+      ]
+    },
+    {
+      "id": "rum",
+      "name": "Rum",
+      "subtitle": "ラム",
+      "items": [
+        { "name": "Mojito", "note": "ミント / 爽快", "price": 1000 },
+        { "name": "Cuba Libre", "note": "ラムコーク / ライム", "price": 1000 },
+        { "name": "Daiquiri (Rum base)", "note": "ショート / キレ", "price": 1000 },
+        { "name": "Dark Rum (sipping)", "note": "深い甘み / ロック", "price": 1000 }
+      ]
+    },
+    {
+      "id": "vodka",
+      "name": "Vodka",
+      "subtitle": "ウォッカ",
+      "items": [
+        { "name": "Moscow Mule", "note": "ジンジャー / ライム", "price": 1000 },
+        { "name": "Cosmopolitan", "note": "華やか / クランベリー", "price": 1000 },
+        { "name": "Screwdriver", "note": "オレンジ", "price": 1000 },
+        { "name": "Vodka Tonic", "note": "軽快 / すっきり", "price": 1000 }
+      ]
+    },
+    {
+      "id": "tequila",
+      "name": "Tequila",
+      "subtitle": "テキーラ",
+      "items": [
+        { "name": "Tequila (Blanco / Reposado)", "note": "ショット/ロック", "price": 1000 },
+        { "name": "Margarita (Tequila base)", "note": "塩リムも可", "price": 1000 },
+        { "name": "Paloma", "note": "グレープフルーツ / 爽快", "price": 1000 }
+      ]
+    },
+    {
+      "id": "brandy",
+      "name": "Brandy",
+      "subtitle": "ブランデー",
+      "items": [
+        { "name": "Brandy (sipping)", "note": "食後に / 香り", "price": 1000 },
+        { "name": "Sidecar", "note": "ブランデー×柑橘", "price": 1000 },
+        { "name": "Alexander", "note": "クリーミー / 甘口", "price": 1000 }
+      ]
+    },
+    {
+      "id": "beer",
+      "name": "Beer",
+      "subtitle": "ビール",
+      "items": [
+        { "name": "Draft Beer", "note": "生", "price": 1000 },
+        { "name": "Bottled Beer", "note": "ボトル各種", "price": 1000 },
+        { "name": "Shandy Gaff", "note": "ビール×ジンジャー", "price": 1000 }
+      ]
+    },
+    {
+      "id": "shochu_sake",
+      "name": "Sake & Shochu",
+      "subtitle": "日本酒・焼酎",
+      "items": [
+        { "name": "Sake (Junmai / Ginjo)", "note": "冷・燗 相談可", "price": 1000 },
+        { "name": "Shochu (Rice / Barley / Sweet potato)", "note": "ロック/水割り/ソーダ", "price": 1000 },
+        { "name": "Umeshu", "note": "梅酒 / ロック・ソーダ", "price": 1000 }
+      ]
+    },
+    {
+      "id": "non_alcohol",
+      "name": "Non-Alcohol",
+      "subtitle": "ノンアル",
+      "items": [
+        { "name": "Virgin Mojito", "note": "ミント / ライム", "price": 1000 },
+        { "name": "Citrus Soda", "note": "自家製シトラス", "price": 1000 },
+        { "name": "Ginger & Lime", "note": "辛口ジンジャー", "price": 1000 },
+        { "name": "Seasonal Fruit (ask)", "note": "季節のフルーツ", "price": 1000 }
+      ]
+    }
+  ]
+}
