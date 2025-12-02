@@ -3,44 +3,81 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="description" content="バー/店舗の紹介ページ" />
-  <title>WACK DA. VINCI</title>
 
+  <!-- SEO: Title / Description 強化（秋田町 + 隠れ家 + 深夜営業） -->
+  <title>【秋田町の隠れ家バー】WACK DA. VINCI｜深夜4時まで営業・カクテル＆フード</title>
+  <meta name="description" content="徳島・秋田町エリアの隠れ家バー「WACK DA. VINCI」。禁酒法時代のスピークイージーを思わせる店内で、和×洋のシグネチャーカクテルとフードを。深夜4時まで営業（20:00–04:00／水曜定休）。" />
+
+  <!-- SEO: 正規URL（本番URLに変更） -->
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- SNS 共有強化（OGP） -->
+  <meta property="og:site_name" content="WACK DA. VINCI" />
+  <meta property="og:title" content="秋田町の隠れ家バー｜WACK DA. VINCI（深夜4時まで営業）" />
+  <meta property="og:description" content="徳島・秋田町で、静かに飲める大人の隠れ家。和×洋のカクテルとフード。20:00–04:00（水曜定休）。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/ogp.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- フォント / CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!--  構造化データ（LocalBusiness/BarOrPub） -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BarOrPub",
+    "name":"WACK DA. VINCI",
+    "description":"徳島・秋田町エリアの隠れ家バー。深夜4時まで営業。和×洋のカクテル、フード、スイーツ。",
+    "telephone":"+81-88-679-6308",
+    "address":{
+      "@type":"PostalAddress",
+      "addressRegion":"徳島県",
+      "addressLocality":"徳島市",
+      "streetAddress":"両国橋11-2",
+      "addressCountry":"JP"
+    },
+    "openingHoursSpecification":[
+      {
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"],
+        "opens":"20:00",
+        "closes":"04:00"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
   <!-- ===== Header ===== -->
-<header class="sticky-header" id="stickyHeader" aria-label="ページナビゲーション">
-  <a class="sticky-brand" href="#top" aria-label="トップへ">
-    <img src="assets/img/logo.png" alt="" aria-hidden="true">
-    <span>WACK DA. VINCI</span>
-  </a>
+  <header class="sticky-header" id="stickyHeader" aria-label="ページナビゲーション">
+    <a class="sticky-brand" href="#top" aria-label="トップへ">
+      <img src="assets/img/logo.png" alt="" aria-hidden="true">
+      <span>WACK DA. VINCI</span>
+    </a>
 
-  <!-- 追加：ハンバーガーボタン（押すと×） -->
-  <button class="nav-toggle" type="button"
-          aria-label="メニューを開く"
-          aria-controls="siteNav"
-          aria-expanded="false">
-    <span class="nav-toggle__bar" aria-hidden="true"></span>
-    <span class="nav-toggle__bar" aria-hidden="true"></span>
-    <span class="nav-toggle__bar" aria-hidden="true"></span>
-  </button>
+    <button class="nav-toggle" type="button"
+            aria-label="メニューを開く"
+            aria-controls="siteNav"
+            aria-expanded="false">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
 
-  <nav class="sticky-nav" id="siteNav" aria-label="セクションナビ">
-    <a href="#about">About</a>
-    <a href="#drinks">Drinks</a>
-    <a href="#info">Access</a>
-  </nav>
-</header>
-
+    <nav class="sticky-nav" id="siteNav" aria-label="セクションナビ">
+      <a href="#about">About</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#info">Access</a>
+    </nav>
+  </header>
 
   <main>
-    <!-- ================== HERO (full screen) ================== -->
+    <!-- ================== HERO ================== -->
     <section class="hero" id="top" aria-label="ファーストビュー">
       <img class="hero-bg" src="assets/img/1.png" alt="" aria-hidden="true">
       <div class="hero-scrim" aria-hidden="true"></div>
@@ -48,105 +85,103 @@
       <div class="hero-content">
         <div class="brand-lockup" id="brandLockup">
           <div class="brand-text">
+            <!--  H1にSEOワードを自然に含める（ブランドは残す） -->
             <h1 class="brand-name">Wack da.vinch.</h1>
-            <p class="brand-tag">Secret bar</p>
+            <p class="brand-tag">秋田町の隠れ家バー / 深夜4時まで</p>
           </div>
         </div>
       </div>
-
-      <!-- <a class="scroll-hint" href="#intro" aria-label="下へスクロール">Scroll</a>
-      <div class="sticky-sentinel" id="stickySentinel" aria-hidden="true"></div> -->
     </section>
 
     <!-- ================== INTRO ================== -->
     <section class="intro" id="intro" aria-label="イントロ">
       <div class="intro-inner">
         <p class="intro-overline">Wack da.vinch.</p>
-        <p class="intro-kicker">バーを愉しめ</p>
-        <h2 class="intro-headline">A FINE PLACE TO&nbsp;SIP OR GUZZLE</h2>
+        <p class="intro-kicker">秋田町で、夜のスイッチを入れる。</p>
+        <h2 class="intro-headline">徳島・秋田町の“隠れ家バー”で、深夜まで一杯を。</h2>
         <p class="intro-lead">
           1860年に万延元年遣米使節として海を渡った侍たちと、カクテル黄金時代のアメリカ。<br>
-          彼らの旅からインスパイアされたWack da.vinch.は、和と洋が絶妙にブレンドされたカクテルバー。
+          その旅にインスパイアされた Wack da.vinch. は、和と洋が絶妙にブレンドされたカクテルバー<br>
+          秋田町エリアで、静かに飲みたい夜も、語りたい深夜も。20:00〜翌4:00まで営業しています。
         </p>
       </div>
     </section>
 
     <!-- ================== ABOUT ================== -->
-<section class="wrap" id="about" aria-label="About us">
-  <article class="story">
-    <div class="story-media">
-      <img src="assets/img/store1.png" alt="店内の雰囲気">
-    </div>
-    <div class="story-text">
-      <h2>禁酒法時代の“隠れ家”を、両国橋に。</h2>
-      <p>
-        1920〜1933年、アメリカに存在した無許可バー“スピークイージー”の空気感をヒントに、
-        ひっそりと佇む一軒をつくりました。2022年12月オープン。
-        日常のスイッチが切り替わるような、少し背筋が伸びる夜をどうぞ。
-      </p>
-    </div>
-  </article>
+    <section class="wrap" id="about" aria-label="About us">
+      <article class="story">
+        <div class="story-media">
+          <img src="assets/img/store1.png" alt="秋田町近くの隠れ家バーの店内の雰囲気">
+        </div>
+        <div class="story-text">
+          <h2>秋田町の夜に似合う、スピークイージーの“隠れ家”。</h2>
+          <p>
+            1920〜1933年、アメリカに存在した無許可バー“スピークイージー”の空気感をヒントに、
+            ひっそりと佇む一軒をつくりました（2022年12月オープン）。
+            仕事終わりの一杯から、深夜の二軒目・三軒目まで——秋田町の夜を、少しだけ上質に。
+          </p>
+        </div>
+      </article>
 
-  <article class="story story--reverse">
-    <div class="story-media">
-      <img src="assets/img/store2f.png" alt="2階席の雰囲気">
-    </div>
-    <div class="story-text">
-      <h2>素材の存在感。目線の先まで、演出。</h2>
-      <p>
-        入口でまず迎えるのは、光を含む黒い表情の壁材と無骨な鋼板のコントラスト。
-        天井には車輪モチーフや格子装飾など、細部にまで“物語”を仕込みました。
-        インテリアの一部には、ドラマ美術で使われていたパーツが活かされているのも密かな見どころです。
-      </p>
-    </div>
-  </article>
+      <article class="story story--reverse">
+        <div class="story-media">
+          <img src="assets/img/store2f.png" alt="2階席の雰囲気（ゆったり座れるソファ席）">
+        </div>
+        <div class="story-text">
+          <h2>1階は軽やかに。2階は深く、ゆったりと。</h2>
+          <p>
+            入口で迎えるのは、光を含む黒い表情の壁材と無骨な鋼板のコントラスト。
+            1階はカウンターで気軽に、2階は革張りソファで会話と余韻を。
+            秋田町の深夜に、落ち着いた時間を用意しています。
+          </p>
+        </div>
+      </article>
 
-  <article class="story">
-    <div class="story-media">
-      <img src="assets/img/store22.png" alt="カクテルとフード">
-    </div>
-    <div class="story-text">
-      <h2>1階は賑やかに。2階は深く、ゆったりと。</h2>
-      <p>
-        1階はカウンターとハイチェアで軽やかに一杯を。
-        2階は革張りソファで、会話と余韻を楽しむ時間へ。
-        フレッシュフルーツのカクテルや遊び心ある演出系カクテル、
-        パスタやピザ、スイーツまで揃え、シーンに合わせて夜をデザインできます。
-      </p>
-    </div>
-  </article>
+      <article class="story">
+        <div class="story-media">
+          <img src="assets/img/store22.png" alt="カクテルとフード（パスタやピザ、スイーツも）">
+        </div>
+        <div class="story-text">
+          <h2>カクテルだけじゃない。フードも“夜の主役”。</h2>
+          <p>
+            フレッシュフルーツのカクテル、遊び心ある演出系、ノンアルのモクテルまで。
+            さらに、パスタやピザ、スイーツも揃えています。
+            “秋田町で深夜まで食事もできるバー”として、軽い一皿から〆までおまかせください。
+          </p>
+        </div>
+      </article>
+    </section>
 
-</section>
-
-    <!-- ================== DRINKS carousel ================== -->
+    <!-- ================== DRINKS ================== -->
     <section class="wrap" id="drinks" aria-label="ドリンク">
-<header class="section-head">
-  <div class="section-head-top">
-    <h2 class="section-title">Drinks</h2>
+      <header class="section-head">
+        <div class="section-head-top">
+          <h2 class="section-title">Drinks</h2>
 
-    <a class="btn btn-inline" href="drink.html" aria-label="ドリンクメニューをもっと見る">
-      menuを表示
-    </a>
-  </div>
-</header>
+          <a class="btn btn-inline" href="drink.html" aria-label="ドリンクメニューをもっと見る">
+            メニューを見る
+          </a>
+        </div>
+        <!-- SEO補強の1文（検索に強いキーワードを自然に） -->
+        <p class="section-sub">秋田町の隠れ家バーで、シグネチャーカクテルと季節の一杯を。</p>
+      </header>
 
       <div class="carousel" data-carousel>
         <div class="carousel-track" data-track>
           <figure class="card">
-            <img src="assets/img/drink/signature_01.png" alt="Drink 01">
-            <figcaption>Signature 01</figcaption>
+            <img src="assets/img/drink/signature_01.png" alt="シグネチャーカクテル（和×洋の一杯）">
+            <figcaption>Signature</figcaption>
           </figure>
           <figure class="card">
-            <img src="assets/img/drink/signature_02.png" alt="Drink 02">
-            <figcaption>Signature 02</figcaption>
-          </figure>
-          <figure class="card">
-            <img src="assets/img/drink/signature_03.png" alt="Drink 03">
+            <img src="assets/img/drink/signature_02.png" alt="季節のカクテル（フルーツカクテル）">
             <figcaption>Seasonal</figcaption>
           </figure>
-
           <figure class="card">
-            <img src="assets/img/drink/signature_04.png" alt="Drink 05">
+            <img src="assets/img/drink/signature_03.png" alt="演出系カクテル">
+            <figcaption>Show</figcaption>
+          </figure>
+          <figure class="card">
+            <img src="assets/img/drink/signature_04.png" alt="モクテル（ノンアルコール）">
             <figcaption>Mocktail</figcaption>
           </figure>
         </div>
@@ -155,23 +190,19 @@
         <button class="car-btn car-btn--next" type="button" data-next aria-label="次へ">›</button>
         <div class="dots" data-dots aria-label="スライド位置"></div>
       </div>
-
-      <!-- <div style="display:flex; justify-content:center; margin-top:1.2rem;">
-        <a class="btn" href="drink.html" aria-label="ドリンクメニューをもっと見る">meneを表示</a>
-      </div> -->
     </section>
 
     <!-- ================== Information ================== -->
     <section class="wrap" id="info" aria-label="インフォメーション">
       <header class="section-head">
         <h2 class="section-title">Information</h2>
-        <p class="section-sub">Access / Hours</p>
+        <p class="section-sub">Access / Hours（秋田町エリア・深夜営業）</p>
       </header>
 
       <div class="info">
         <div class="info-brand info-map">
           <iframe
-            title="WACK DA. VINCI の地図"
+            title="WACK DA. VINCI の地図（徳島・秋田町エリア）"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=徳島県徳島市両国橋11-2&output=embed"
@@ -184,17 +215,36 @@
           <p><a href="tel:088-679-6308">088-679-6308</a></p>
 
           <h3>Address</h3>
-          <p>徳島県徳島市両国橋11-2</p>
+          <p>徳島県徳島市両国橋11-2（秋田町エリア）</p>
 
           <h3>Hours</h3>
           <p>20:00–04:00（水曜日定休日）</p>
 
+          <p style="margin-top:.8rem;">
+            秋田町で深夜まで営業している隠れ家バー。二軒目・三軒目の一杯にもどうぞ。
+          </p>
+
           <div class="info-actions">
             <a class="btn"
-               href="https://www.google.com/maps?q=徳島県徳島市両国橋11-2"
-               target="_blank" rel="noopener">
+              href="https://www.google.com/maps?q=徳島県徳島市両国橋11-2"
+              target="_blank" rel="noopener">
               Open Map
             </a>
+
+            <!-- Instagram -->
+            <a class="icon-link"
+              href="INSTAGRAM_URL"
+              target="_blank" rel="noopener"
+              aria-label="Instagram へ">
+              <!-- Instagram SVG icon -->
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Z"/>
+                <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+                <path d="M17.6 6.6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/>
+              </svg>
+            </a>
+          </div>
+
           </div>
         </div>
       </div>
@@ -209,7 +259,6 @@
         <p>© <span id="year"></span> WACK DA. VINCI</p>
       </div>
     </footer>
-
   </main>
 
   <script src="js/main.js"></script>
