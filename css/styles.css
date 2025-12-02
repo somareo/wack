@@ -120,21 +120,87 @@ p{ margin:0; color: var(--muted); }
   color: rgba(255,255,255,.70);
 }
 
-/* スクロールヒント */
+/* ===== Scroll hint : cocktail glass icon (no wrap) ===== */
+/* ===== Scroll hint : cocktail glass icon (no wrap) ===== */
 .scroll-hint{
-  position:absolute;
-  left: 1.2rem;
-  bottom: calc(1.2rem + env(safe-area-inset-bottom));
-  transform: translateY(4.6rem);
-  font-size: .8rem;
-  color: rgba(255,255,255,.65);
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  padding: .6rem .85rem;
+  position: absolute;
+  left: 1.0rem;
+  bottom: calc(1.0rem + env(safe-area-inset-bottom));
+  transform: none; /* ← はみ出し原因になりやすいので解除 */
+
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+
+  padding: .55rem .75rem;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.25);
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(0,0,0,.28);
+  backdrop-filter: blur(8px);
+
+  color: rgba(255,255,255,.84);
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+
+  white-space: nowrap;     /* ← 折り返さない */
+  max-width: calc(100vw - 1.6rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  z-index: 3;
 }
+
+/* Scroll の文字は消して、アイコンだけにしたい場合 */
+.scroll-hint{
+  color: transparent;        /* テキストは見せない */
+  letter-spacing: 0;
+  font-size: 0;              /* 見た目の文字幅をゼロに */
+}
+.scroll-hint::after{
+  content: "Scroll";
+  font-size: .8rem;          /* ← もし “Scroll” は残したいならこの2行を消してOK */
+  color: rgba(255,255,255,.70);
+}
+
+/* カクテルグラス（CSSで描画） */
+.scroll-hint::before{
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+
+  /* グラス風シルエット */
+  background:
+    /* グラスの中身（斜め） */
+    linear-gradient(135deg,
+      rgba(255,255,255,.0) 0 44%,
+      rgba(255,255,255,.35) 44% 58%,
+      rgba(255,255,255,.0) 58% 100%) ,
+    /* グラス本体 */
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92));
+
+  /* 台形＋ステムっぽく見えるようにクリップ */
+  clip-path: polygon(
+    12% 18%, 88% 18%, 62% 52%, 62% 74%,
+    72% 74%, 72% 84%, 28% 84%, 28% 74%,
+    38% 74%, 38% 52%
+  );
+
+  opacity: .92;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+}
+
+/* スマホでは少し内側に＋小さめに */
+@media (max-width: 480px){
+  .scroll-hint{
+    left: .75rem;
+    bottom: calc(.75rem + env(safe-area-inset-bottom));
+    padding: .48rem .65rem;
+    border-radius: 999px;
+  }
+}
+
 
 /* ================= Section Head ================= */
 .section-head{
