@@ -60,14 +60,14 @@ p{ margin:0; color: var(--muted); }
   background:
     radial-gradient(120% 70% at 30% 10%,
       rgba(0,0,0,.0),
-      rgba(0,0,0,.25) 55%,
-      rgba(0,0,0,.30) 75%,
+      rgba(0,0,0,.15) 55%,
+      rgba(0,0,0,.20) 75%,
       rgba(0,0,0,.40) 85%,
       rgba(0,0,0,.92) 100%
     ),
     linear-gradient(to top,
       rgba(0,0,0,.92) 0%,
-      rgba(0,0,0,.60) 25%,
+      rgba(0,0,0,.40) 25%,
       rgba(0,0,0,.20) 66%,
       rgba(0,0,0,.0) 100%
     );
