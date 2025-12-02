@@ -34,7 +34,6 @@
           "price": 1000,
           "img": "assets/img/drink/signature_04.png"
         }
-
       ]
     },
     {
@@ -162,6 +161,28 @@
         { "name": "Ginger & Lime", "note": "辛口ジンジャー", "price": 1000 },
         { "name": "Seasonal Fruit (ask)", "note": "季節のフルーツ", "price": 1000 }
       ]
+    },
+
+
+    {
+      "id": "food",
+      "name": "Food",
+      "subtitle": "軽食",
+      "items": [
+        {
+          "name": "Chocolate Plate",
+          "note": "ビター＆ナッツ / 食後に",
+          "price": 1000,
+          "img": "assets/img/drink/choco.png"
+        },
+        {
+          "name": "Pasta (Chef’s)",
+          "note": "本日のパスタ / おすすめ",
+          "price": 1000,
+          "img": "assets/img/drink/pasta.png"
+        }
+      ]
     }
+
   ]
 }

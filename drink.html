@@ -28,24 +28,8 @@
 
     .toolbar{
       display:flex; gap:.75rem; flex-wrap: wrap;
-      align-items:center; justify-content: space-between;
+      align-items:center; justify-content: flex-start;
       margin: 1.1rem 0 1.4rem;
-    }
-    .search{
-      flex: 1 1 16rem;
-      display:flex; gap:.6rem;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      border-radius: 999px;
-      padding: .55rem .8rem;
-    }
-    .search input{
-      width:100%;
-      background: transparent;
-      border: 0;
-      outline: 0;
-      color: rgba(255,255,255,.9);
-      font-size: .95rem;
     }
     .chipbar{ display:flex; gap:.5rem; flex-wrap: wrap; }
     .chip{
@@ -104,24 +88,38 @@
       aspect-ratio: 4/3;
       object-fit: cover;
     }
+
+    /* ▼ 改行表示のキャプション */
     .menu-card .cap{
       padding:.85rem .95rem;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap:.8rem;
+      display:grid;
+      gap:.28rem;
+      align-items:start;
     }
     .menu-card .name{
       margin:0;
       color: rgba(255,255,255,.92);
       font-weight: 600;
       letter-spacing:.02em;
+      line-height: 1.2;
     }
-    .menu-card .meta{
+    .menu-card .note{
       margin:0;
-      color: rgba(255,255,255,.55);
-      font-size: .85rem;
-      white-space: nowrap;
+      color: rgba(255,255,255,.62);
+      font-size: .88rem;
+      line-height: 1.35;
+    }
+    .menu-card .price{
+      margin: .05rem 0 0;
+      color: rgba(255,255,255,.85);
+      font-size: .9rem;
+      letter-spacing: .02em;
+    }
+    .yen{
+      font-family: "Cinzel", serif;
+      letter-spacing:.04em;
+      margin-right: .35rem;
+      opacity:.85;
     }
 
     /* 写真なし（下） */
@@ -131,17 +129,16 @@
       gap: .45rem;
     }
     .menu-item{
-      padding: .72rem .85rem;
+      padding: .78rem .85rem;
       border-radius: .9rem;
       border: 1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.22);
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap:.8rem;
+      display:grid;
+      gap:.28rem;
     }
-    .menu-item .name{ color: rgba(255,255,255,.88); font-weight: 600; letter-spacing:.01em; }
-    .menu-item .meta{ color: rgba(255,255,255,.55); font-size: .85rem; white-space: nowrap; }
+    .menu-item .name{ color: rgba(255,255,255,.90); font-weight: 600; letter-spacing:.01em; line-height: 1.2; }
+    .menu-item .note{ color: rgba(255,255,255,.60); font-size: .86rem; line-height: 1.35; }
+    .menu-item .price{ color: rgba(255,255,255,.85); font-size: .9rem; margin-top:.05rem; }
 
     .statusline{
       margin-top: .6rem;
@@ -182,10 +179,8 @@
       <h1 class="page-title">Drinks Menu</h1>
     </header>
 
-    <div class="toolbar" aria-label="検索とジャンル絞り込み">
-      <div class="search" role="search">
-        <input id="q" type="search" placeholder="検索（例：Martini）" autocomplete="off" />
-      </div>
+    <!-- ✅ 検索を削除。ジャンルチップのみ -->
+    <div class="toolbar" aria-label="ジャンル絞り込み">
       <div class="chipbar" id="chipbar" aria-label="ジャンル"></div>
     </div>
 
@@ -209,7 +204,6 @@
 
     const menuRoot = $("#menuRoot");
     const chipbar = $("#chipbar");
-    const qInput = $("#q");
     const statusline = $("#statusline");
     const errorBox = $("#errorBox");
 
@@ -221,8 +215,11 @@
       errorBox.textContent = msg;
     }
 
-    function normalize(s){
-      return String(s || "").toLowerCase();
+    function formatPrice(p){
+      if(p === null || p === undefined || p === "") return "";
+      const n = Number(p);
+      if(Number.isFinite(n)) return n.toLocaleString("ja-JP");
+      return String(p);
     }
 
     function buildChips(genres){
@@ -236,26 +233,63 @@
         b.setAttribute("aria-pressed", id === activeGenre ? "true" : "false");
         b.addEventListener("click", () => {
           activeGenre = id;
-          // UI update
-          [...chipbar.querySelectorAll(".chip")].forEach(x => x.setAttribute("aria-pressed", x.dataset.genre === id ? "true" : "false"));
+          [...chipbar.querySelectorAll(".chip")]
+            .forEach(x => x.setAttribute("aria-pressed", x.dataset.genre === id ? "true" : "false"));
           render();
         });
         return b;
       };
 
       chipbar.appendChild(makeChip("all", "すべて"));
-
       for(const g of genres){
         chipbar.appendChild(makeChip(g.id, g.name));
+      }
+    }
+
+    function makeLines(it, forCard){
+      const wrap = el("div", forCard ? "cap" : "");
+      const name = el("p", "name"); name.textContent = it.name || "";
+
+      const noteText = (it.note || "").trim();
+      const priceText = formatPrice(it.price);
+
+      if(forCard){
+        wrap.appendChild(name);
+
+        if(noteText){
+          const note = el("p", "note");
+          note.textContent = noteText;
+          wrap.appendChild(note);
+        }
+        if(priceText){
+          const price = el("p", "price");
+          price.innerHTML = `<span class="yen">¥</span>${priceText}`;
+          wrap.appendChild(price);
+        }
+        return wrap;
+      }else{
+        // list row (grid) 用：中身は親に直接 append でもよいけど統一
+        const frag = document.createDocumentFragment();
+        frag.appendChild(name);
+
+        if(noteText){
+          const note = el("div", "note");
+          note.textContent = noteText;
+          frag.appendChild(note);
+        }
+        if(priceText){
+          const price = el("div", "price");
+          price.innerHTML = `<span class="yen">¥</span>${priceText}`;
+          frag.appendChild(price);
+        }
+        return frag;
       }
     }
 
     function render(){
       if(!rawData) return;
 
-      const q = normalize(qInput.value);
       const genres = rawData.genres || [];
-
       menuRoot.innerHTML = "";
 
       let shownItems = 0;
@@ -264,21 +298,13 @@
 
       for(const genre of filteredGenres){
         const items = Array.isArray(genre.items) ? genre.items : [];
-
-        // 検索でフィルタ
-        const matched = items.filter(it => {
-          if(!q) return true;
-          const hay = normalize(it.name) + " " + normalize(it.note);
-          return hay.includes(q);
-        });
-
-        if(matched.length === 0) continue;
+        if(items.length === 0) continue;
 
         // 写真ありを先に
-        const withImg = matched.filter(it => it.img);
-        const noImg   = matched.filter(it => !it.img);
+        const withImg = items.filter(it => it.img);
+        const noImg   = items.filter(it => !it.img);
 
-        shownItems += matched.length;
+        shownItems += items.length;
 
         const article = el("article", "genre");
 
@@ -289,25 +315,21 @@
         sub.textContent = genre.subtitle || "";
         head.appendChild(h2);
         head.appendChild(sub);
-
         article.appendChild(head);
 
         if(withImg.length){
           const grid = el("div", "menu-grid");
           for(const it of withImg){
             const card = el("div", "menu-card");
+
             const img = document.createElement("img");
             img.src = it.img;
             img.alt = it.name || "";
             img.loading = "lazy";
             card.appendChild(img);
 
-            const cap = el("div", "cap");
-            const name = el("p", "name"); name.textContent = it.name || "";
-            const meta = el("p", "meta"); meta.textContent = it.note || "";
-            cap.appendChild(name);
-            cap.appendChild(meta);
-            card.appendChild(cap);
+            // ✅ name / note / price を改行表示
+            card.appendChild(makeLines(it, true));
 
             grid.appendChild(card);
           }
@@ -318,10 +340,8 @@
           const list = el("div", "menu-list");
           for(const it of noImg){
             const row = el("div", "menu-item");
-            const name = el("span", "name"); name.textContent = it.name || "";
-            const meta = el("span", "meta"); meta.textContent = it.note || "";
-            row.appendChild(name);
-            row.appendChild(meta);
+            // ✅ name / note / price を改行表示
+            row.appendChild(makeLines(it, false));
             list.appendChild(row);
           }
           article.appendChild(list);
@@ -331,7 +351,10 @@
       }
 
       const updated = rawData.meta?.updated_at ? ` / 更新: ${rawData.meta.updated_at}` : "";
-      const genreLabel = activeGenre === "all" ? "すべて" : (rawData.genres.find(g => g.id === activeGenre)?.name || activeGenre);
+      const genreLabel = activeGenre === "all"
+        ? "すべて"
+        : (rawData.genres.find(g => g.id === activeGenre)?.name || activeGenre);
+
       statusline.textContent = `表示: ${shownItems}件 / ジャンル: ${genreLabel}${updated}`;
     }
 
@@ -341,12 +364,7 @@
         if(!res.ok) throw new Error(`menu.json を取得できませんでした（${res.status}）`);
         rawData = await res.json();
 
-        // chips 作成
         buildChips(rawData.genres || []);
-
-        // 検索
-        qInput.addEventListener("input", render);
-
         render();
       }catch(e){
         setError(

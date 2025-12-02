@@ -142,6 +142,20 @@ p{ margin:0; color: var(--muted); }
   gap:.35rem;
   margin-bottom: 1.1rem;
 }
+.section-head-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+}
+
+.btn-inline{
+  margin: 0;           /* 余計な余白を消す */
+  padding: .55rem .9rem;  /* 少しコンパクトに */
+  border-radius: 999px;   /* pill */
+  white-space: nowrap;
+}
+
 .section-title{
   margin:0;
   font-size: 1.4rem;
