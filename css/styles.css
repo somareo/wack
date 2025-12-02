@@ -610,10 +610,9 @@ p{ margin:0; color: var(--muted); }
 }
 
 /* ===== Mobile Hamburger Nav ===== */
-/* ボタン（基本はPCで非表示） */
-/* ボタン（基本はPCで非表示） */
+/* ===== Perfect X Hamburger ===== */
 .nav-toggle{
-  display: none;
+  display: none; /* ← @media内で inline-flex にするのは今のままでOK */
   width: 46px;
   height: 46px;
   border: 1px solid rgba(255,255,255,0.18);
@@ -622,42 +621,45 @@ p{ margin:0; color: var(--muted); }
   -webkit-backdrop-filter: blur(10px);
   border-radius: 14px;
   cursor: pointer;
-
-  /* ★ここが重要：3本を縦に積む */
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-
   padding: 0;
+  position: relative;          /* ★重要：バーを絶対配置する土台 */
+  -webkit-tap-highlight-color: transparent;
   transition: transform .18s ease, background .18s ease, border-color .18s ease;
 }
-
-/* 3本線 */
-.nav-toggle__bar{
-  display:block;
-  width: 20px;
-  height: 2px;
-
-  /* ★gapで間隔を作るのでmarginは不要（横並び崩れ防止） */
-  margin: 0;
-
-  background: rgba(255,255,255,0.92);
-  border-radius: 99px;
-  transition: transform .22s ease, opacity .18s ease;
-}
-
 .nav-toggle:active{ transform: scale(0.98); }
 .nav-toggle:hover{
   background: rgba(0,0,0,0.34);
   border-color: rgba(255,255,255,0.28);
 }
 
+/* 3本線：中央基準で絶対配置（これが一番キレイに×になる） */
+.nav-toggle__bar{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 999px;
+  transform-origin: center;
+  transition: transform .22s ease, opacity .18s ease;
+}
 
-/* 開いたら×に変形 */
-.nav-open .nav-toggle__bar:nth-child(1){ transform: translateY(6px) rotate(45deg); }
-.nav-open .nav-toggle__bar:nth-child(2){ opacity: 0; }
-.nav-open .nav-toggle__bar:nth-child(3){ transform: translateY(-6px) rotate(-45deg); }
+/* 通常時：上・中・下 */
+.nav-toggle__bar:nth-child(1){ transform: translate(-50%, -50%) translateY(-7px); }
+.nav-toggle__bar:nth-child(2){ transform: translate(-50%, -50%); }
+.nav-toggle__bar:nth-child(3){ transform: translate(-50%, -50%) translateY(7px); }
+
+/* 開いたら：中心で回転して綺麗な× */
+.nav-open .nav-toggle__bar:nth-child(1){
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.nav-open .nav-toggle__bar:nth-child(2){
+  opacity: 0;
+}
+.nav-open .nav-toggle__bar:nth-child(3){
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 
 /* モバイル：ドロップダウン化 */
 @media (max-width: 860px){
